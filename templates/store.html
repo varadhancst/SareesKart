@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <!-- Items -->
+
+    <div class="container items">
+      <h1 class="head-title">Store</h1>
+        <div class="row d-flex justify-content-evenly text-center">
+          {% for item in all_items %}
+            <div class="col-3 d-flex justify-content-evenly">
+                <div class="card item" style="width: 15rem;">
+                    <img src={{ item.image }} class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ item.name }}</h5>
+                      <p class="card-text">₹ {{ "%.2f"|format(item.price) }}</p>
+                      <form action="/create-checkout-session/{{ item.price_id }}" method="POST">
+                        <button class="btn btn-warning" type="submit" id="checkout-button">BUY NOW</button>
+                      </form>
+
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+            </div>
+    </div>
+
+
+{% endblock %}

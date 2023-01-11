@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="container">
+    <h1 class="head-title">Silk sarees</h1>
+    <div class="carousel carousel-dark slide" data-bs-ride="carousel" id="carouselExampleControls1">
+        <div class="carousel-inner">
+            {% for item in all_items %}
+            {% if loop.index == 1 %}
+            <div class="carousel-item active">
+                <div class="row d-flex justify-content-evenly text-center">
+                    {% elif loop.index % 3 == 1 %}
+                    <div class="carousel-item">
+                        <div class="row d-flex justify-content-evenly text-center">
+                            {% endif %}
+                            <div class="col d-flex justify-content-evenly">
+                                <div class="card item" style="width: 20rem;">
+                                    <img alt="..." class="card-img-top"  src={{ item.image }}>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ item.name }}</h5>
+                                        <p class="card-text">₹ {{ "%.2f"|format(item.price) }}</p>
+                                        <form action="/create-checkout-session/{{ item.price_id }}" method="POST">
+                                            <button class="btn btn-outline-success" id="checkout-button" type="submit">
+                                                BUY NOW
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if (loop.index % 3 == 0 or loop.index == total_items ) %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleControls1"
+                        type="button">
+                    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleControls1"
+                        type="button">
+                    <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
+
+
+        </div>
+
+        <!-- Image -->
+
+        <div class="container unsplash">
+            <img alt="..." class="img-fluid" height="800" src="{{ url_for('static', filename='img/SMS3-Banner.jpg') }}"
+                 width="1115">
+        </div>
+
+
+        <!-- Best Sellers -->
+
+        <div class="container items">
+
+            <h1 class="head-title">Recommended Sarees</h1>
+
+            <div class="carousel carousel-dark slide" data-bs-ride="carousel" id="carouselExampleControls2">
+
+                <div class="carousel-inner">
+
+                    {% for item in all_items %}
+                    {% if loop.index == 1 %}
+                    <div class="carousel-item active">
+                        <!-- Items -->
+                        <div class="row d-flex justify-content-evenly text-center">
+                            {% elif loop.index % 4 == 1 %}
+                            <div class="carousel-item">
+                                <!-- Items -->
+                                <div class="row d-flex justify-content-evenly text-center">
+                                    {% endif %}
+                                    <div class="col d-flex justify-content-evenly">
+                                        <div class="card item" style="width: 12rem;">
+                                            <img alt="..." class="card-img-top"  src={{ item.image }}>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ item.name }}</h5>
+                                                <p class="card-text">₹ {{ "%.2f"|format(item.price) }}</p>
+                                                <form action="/create-checkout-session/{{ item.price_id }}"
+                                                      method="POST">
+                                                    <button class="btn btn-outline-success" id="checkout-button"
+                                                            type="submit">
+                                                        BUY NOW
+                                                    </button>
+                                                </form>
+                                                <!-- <a href="#" class="btn btn-warning">Comprar {{loop.index}}</a> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% if (loop.index % 4 == 0 or loop.index == total_items ) %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+
+                        </div>
+
+                        <button class="carousel-control-prev" data-bs-slide="prev"
+                                data-bs-target="#carouselExampleControls2"
+                                type="button">
+                            <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" data-bs-slide="next"
+                                data-bs-target="#carouselExampleControls2"
+                                type="button">
+                            <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+                <!-- Coming soon -->
+
+                <div class="container items">
+
+                    <h1 class="head-title">New arrivals</h1>
+
+                    <div class="carousel carousel-dark slide" data-bs-ride="carousel" id="carouselExampleControls3">
+
+                        <div class="carousel-inner">
+
+                            {% for item in all_items %}
+                            {% if loop.index == 1 %}
+                            <div class="carousel-item active">
+                                <!-- Items -->
+
+                                <div class="row d-flex justify-content-evenly text-center">
+                                    {% elif loop.index % 4 == 1 %}
+                                    <div class="carousel-item">
+                                        <!-- Items -->
+
+                                        <div class="row d-flex justify-content-evenly text-center">
+                                            {% endif %}
+                                            <div class="col d-flex justify-content-evenly">
+                                                <div class="card item" style="width: 12rem;">
+                                                    <img alt="..." class="card-img-top"  src={{ item.image }}>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ item.name }}</h5>
+                                                        <p class="card-text">₹ {{ "%.2f"|format(item.price) }}</p>
+                                                        <form action="/create-checkout-session/{{ item.price_id }}"
+                                                              method="POST">
+                                                            <button class="btn btn-outline-success" id="checkout-button"
+                                                                    type="submit">BUY NOW
+                                                            </button>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% if (loop.index % 4 == 0 or loop.index == total_items ) %}
+                                        </div>
+
+                                        <!-- End Items -->
+
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                </div>
+
+                                <button class="carousel-control-prev" data-bs-slide="prev"
+                                        data-bs-target="#carouselExampleControls3" type="button">
+                                    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" data-bs-slide="next"
+                                        data-bs-target="#carouselExampleControls3" type="button">
+                                    <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                        {% endblock %}

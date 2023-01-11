@@ -1,0 +1,55 @@
+.top {
+    background-color: #FFC108;
+    height: 60px;
+    padding: 1rem;
+}
+
+.header {
+    margin: 0px;
+    padding: 0px;
+}
+
+.items {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.item {
+    margin: 5px 10px 5px 10px;
+}
+
+.head-title {
+    font-family: 'Fira Sans', sans-serif;;
+}
+
+.footer {
+    background-color: #212529;
+    height: 300px;
+    margin-top: 60px;
+    padding-top: 60px;
+    color: white;
+}
+
+
+/* Add Items Page */
+
+.add-items {
+    margin-top: 40px;
+}
+
+/* Update Items Page */
+
+.update-items {
+    margin-top: 40px;
+}
+
+/* Delete Items Page */
+
+.delete-items {
+    margin-top: 40px;
+}
+
+.login {
+    margin-top: 40px;
+}
+

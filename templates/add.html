@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="container add-items">
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+            <h1>Add Items</h1>
+            <form action="{{ url_for('add') }}" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="InputName">Item Name:</label>
+                    <input aria-describedby="nameHelp" class="form-control" id="InputName" name="name" type="text">
+                    <div class="form-text" id="nameHelp">Enter the item name.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="InputUrlImage">Url Image:</label>
+                    <input class="form-control" id="InputUrlImage" name="urlimage" type="text">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="InputPrice">Price:</label>
+                    <input class="form-control" id="InputPrice" name="price" type="text">
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

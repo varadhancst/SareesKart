@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="container update-items">
+    <h2>Update Item</h2>
+    <div class="row">
+        <div class="col-6">
+            <h5>Id: {{ item.id }}</h5>
+            
+            <form action="" method="post">
+                <div class="mb-3">
+                  <label for="InputName" class="form-label">Item Name:</label>
+                  <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" name="name" value="{{ item.name }}">
+                </div>
+                <div class="mb-3">
+                  <label for="InputUrlImage" class="form-label">Url Image:</label>
+                  <input type="text" class="form-control" id="InputUrlImage" name="urlimage" value="{{ item.image }}">
+                </div>
+                <div class="mb-3">
+                    <label for="InputPrice" class="form-label">Price:</label>
+                    <input type="text" class="form-control" id="InputPrice" name="price" value="{{ item.price }}">
+                  </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a class="btn btn-primary" href="/update" role="button">Cancel</a>
+              </form>
+
+        </div>
+        <div class="col-6">
+            <img src="{{ item.image }}" width="200rem" alt="">
+        </div>
+    </div>
+    
+    
+
+
+{% endblock %}

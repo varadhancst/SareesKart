@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="container delete-items">
+    <h1>Delete Items</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for item in all_items %}
+          <tr>
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.image }}</td>
+            <td>{{ "%.2f"|format(item.price) }}</td>
+            <td><a class="btn btn-primary" href="/delete/{{ item.id }}" role="button">Delete</a></td>
+            <!-- <td><button type="button" class="btn btn-primary" onclick="/update/{{ item.id }}">Update</button></td> -->
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}
